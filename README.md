@@ -1,1 +1,3 @@
-# Линевич Владислав 053503
+# Project theme: Kinopoisk analog
+---
+## Linevich Vladislav 053503

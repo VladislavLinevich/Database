@@ -1,5 +1,5 @@
 ## Requirements:
-1. User's role:
+* User's role:
  * default
  * moderatore
  * admin

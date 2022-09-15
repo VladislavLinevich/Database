@@ -1,5 +1,3 @@
 ## Requirements:
-* User's role:
+* User roles:
  * default
- * moderatore
- * admin

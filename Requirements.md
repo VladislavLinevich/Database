@@ -49,7 +49,7 @@ Database description:
    - **IdRating** - uuid
    - IdMovie - uuid(foreign key)
    - Grade - int(movie rating from 1 to 10)
-   - User - uuid(IdUser, one to one review user)
+   - User - uuid(IdUser, one to one rating user)
 
 - Category - movie category
    - **IdCategory** - uuid

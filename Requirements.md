@@ -13,3 +13,7 @@
    - edit and add movies, actors
 3. Admin:
    - same as moderator and block user
+---
+Database diagram:
+
+![alt text](Pictures/diagram.png)

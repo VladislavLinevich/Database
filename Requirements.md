@@ -92,3 +92,6 @@ Database description:
    - Description - text(staff member description)
    - Image - text(staff member image path)
 ---
+Normalized database:
+
+![alt text](Pictures/normalized.png)

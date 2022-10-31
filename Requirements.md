@@ -25,24 +25,24 @@ Database description:
 - User - all users
    - **IdUser** - uuid
    - IdRole - uuid(foreign key)
-   - Name - text(user name)
-   - LastName - text(user last name)
-   - Password - text(user password)
-   - Email - text(user email)
+   - Name - varchar(user name)
+   - LastName - varchar(user last name)
+   - Password - varchar(user password)
+   - Email - varchar(user email)
    - Is_blocked - bool(is the user blocked or not)
 
 - Role - roles for users
    - **IdRole** - uuid
-   - Name - text(role name)
+   - Name - varchar(role name)
 - Log - user action logs
    - **IdUser** - uuid(foreign key)
    - Date - time(time of user action)
-   - Info - text(user action for log)
+   - Info - varchar(user action for log)
 
 - Review - movie review
    - **IdReview** - uuid
    - IdMovie - uuid(foreign key)
-   - Text - text(movie review text)
+   - Text - varchar(movie review text)
    - User - uuid(IdUser, one to one review user)
 
 - Rating - movie rating
@@ -53,17 +53,17 @@ Database description:
 
 - Category - movie category
    - **IdCategory** - uuid
-   - Name - text(category name)
+   - Name - varchar(category name)
 
 - Movie
    - **IdMovie** - uuid
    - IdCategory - uuid(foreign key)
-   - Title - text(movie title)
-   - Tagline - text(movie tagline)
-   - Description - text(movie description)
-   - Poster - text(movie poster image path)
+   - Title - varchar(movie title)
+   - Tagline - varchar(movie tagline)
+   - Description - varchar(movie description)
+   - Poster - varchar(movie poster image path)
    - Year - int(movie release year)
-   - Country - text(movie production country)
+   - Country - varchar(movie production country)
    - World_premiere - time(movie release date)
    - Budget - int(movie production budget)
    - Fees_in_USA - int(fees in USA)
@@ -83,14 +83,14 @@ Database description:
 
 - Genre - movie genre
    - **IdGenre** - uuid
-   - Name - text(genre name)
+   - Name - varchar(genre name)
 
 - Staff - movie staff
    - **IdStaff** - uuid
-   - Name - text(staff member name)
+   - Name - varchar(staff member name)
    - Age - int(staff member age)
-   - Description - text(staff member description)
-   - Image - text(staff member image path)
+   - Description - varchar(staff member description)
+   - Image - varchar(staff member image path)
 ---
 Normalized database:
 

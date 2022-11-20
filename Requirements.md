@@ -16,7 +16,7 @@
 ---
 Database diagram:
 
-![alt text](Pictures/diagram.png)
+![alt text](Pictures/DbDiagram.png)
 ---
 Database description:
 
@@ -40,16 +40,14 @@ Database description:
    - Info - varchar(user action for log)
 
 - Review - movie review
-   - **IdReview** - uuid
-   - IdMovie - uuid(foreign key)
+   - **IdUser** - uuid(foreign key)
+   - **IdMovie** - uuid(foreign key)
    - Text - varchar(movie review text)
-   - User - uuid(IdUser, one to one review user)
 
 - Rating - movie rating
-   - **IdRating** - uuid
-   - IdMovie - uuid(foreign key)
+   - **IdUser** - uuid(foreign key)
+   - **IdMovie** - uuid(foreign key)
    - Grade - int(movie rating from 1 to 10)
-   - User - uuid(IdUser, one to one rating user)
 
 - Category - movie category
    - **IdCategory** - uuid

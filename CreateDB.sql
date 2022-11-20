@@ -1,7 +1,7 @@
 create table if not exists Roles
 (
 	idRole serial primary key,
-	name varchar(30),
+	name varchar(32),
 	unique (idRole, name)	
 );
 
@@ -9,10 +9,10 @@ create table if not exists Users
 (
 	idUser serial primary key,
 	idRole integer,
-	name varchar(30),
-	lastName varchar(30),
-	password varchar(30),
-	email varchar(30),
+	name varchar(32),
+	lastName varchar(32),
+	password varchar(32),
+	email varchar(32),
 	isBlocked bool default false,
 	foreign key (idRole) references Roles (idRole) on delete restrict,
 	unique (idUser, email)
@@ -22,7 +22,7 @@ create table if not exists Logs
 (
 	idUser integer,
 	date timestamp,
-	info varchar(100),
+	info varchar(128),
 	foreign key (idUser) references Users (idUser) on delete restrict,
 	primary key(iduser, date, info)
 );
@@ -30,35 +30,35 @@ create table if not exists Logs
 create table if not exists Categories
 (
 	idCategory serial primary key unique,
-	name varchar(20)
+	name varchar(32)
 );
 
 create table if not exists Genres
 (
 	idGenre serial primary key unique,
-	name varchar(30)
+	name varchar(32)
 );
 
 create table if not exists Staff
 (
 	idStaff serial primary key unique,
-	name varchar(30),
+	name varchar(32),
 	age integer check(age > 0 and age < 100),
-	description varchar(500),
-	image varchar(200)
+	description varchar(1024),
+	image varchar(256)
 );
 
 create table if not exists Movies
 (
 	idMovie serial primary key unique,
 	idCategory integer,
-	title varchar(50),
-	tagline varchar(50),
-	description varchar(800),
-	poster varchar(200),
+	title varchar(64),
+	tagline varchar(64),
+	description varchar(1024),
+	poster varchar(256),
 	year integer,
-	country varchar(50),
-	worldPremiere timestamp,
+	country varchar(64),
+	worldPremiere date,
 	budget integer,
 	feesInUsa integer,
 	feesInWorld integer,
@@ -95,18 +95,20 @@ create table if not exists Directors
 
 create table if not exists Reviews
 (
-	idReview serial primary key unique,
+	idUser integer,
 	idMovie integer,
-	visitor integer,
-	text varchar(500),
-	foreign key (idMovie) references Movies (idMovie) on delete restrict
+	text varchar(512),
+	foreign key (idMovie) references Movies (idMovie) on delete restrict,
+	foreign key (idUser) references Users (idUser) on delete restrict,
+	primary key(idUser, idMovie)
 );
 
 create table if not exists Ratings
 (
-	idRating serial primary key unique,
+	idUser integer,
 	idMovie integer,
-	visitor integer,
 	grade integer check(grade >= 1 and grade <= 10),
-	foreign key (idMovie) references Movies (idMovie) on delete restrict
+	foreign key (idMovie) references Movies (idMovie) on delete restrict,
+	foreign key (idUser) references Users (idUser) on delete restrict,
+	primary key(idUser, idMovie)
 );

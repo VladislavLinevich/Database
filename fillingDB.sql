@@ -60,16 +60,16 @@ values
 (3, 2),
 (5, 2);
 
-insert into ratings(idmovie, visitor, grade)
+insert into ratings(iduser, idmovie, grade)
 values
-(1, 2, 10),
-(1, 3, 9),
+(2, 1, 10),
+(3, 1, 9),
 (2, 2, 8),
-(2, 3, 10);
+(3, 2, 10);
 
-insert into reviews(idmovie, visitor, text)
+insert into reviews(iduser, idmovie, text)
 values
-(1, 2, 'Отличный фильм!!'),
-(1, 3, 'Изумительно.'),
+(2, 1, 'Отличный фильм!!'),
+(3, 1, 'Изумительно.'),
 (2, 2, 'Неплохой фильм'),
-(2, 3, 'Шедевр кинематографа!!');
+(3, 2, 'Шедевр кинематографа!!');
